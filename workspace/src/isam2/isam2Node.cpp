@@ -58,7 +58,7 @@ class SLAMValidation : public rclcpp::Node
       vehicle_state_sub = this->create_subscription<eufs_msgs::msg::CarState>(
              VEHICLE_DATA_TOPIC, 10, std::bind(&SLAMValidation::vehicle_state_callback, this, _1));
 
-      timer = this->create_wall_timer(100ms, std::bind(&SLAMValidation::timer_callback, this));
+      timer = this->create_wall_timer(75ms, std::bind(&SLAMValidation::timer_callback, this));
       // For sim
       // vehicle_state_sub = this->create_subscription<interfaces::msg::CarState>(
       // VEHICLE_DATA_TOPIC, 10, std::bind(&SLAMValidation::vehicle_state_callback, this, _1));
@@ -241,6 +241,7 @@ class SLAMValidation : public rclcpp::Node
       ofs.close();
       std::cout.rdbuf(coutbuf); //reset to standard output again
       slam_instance.step(this->get_logger(), global_odom, cones,orangeCones, velocity, dt, loopClosure);
+
       // RCLCPP_INFO(this->get_logger(), "NUM_LANDMARKS: %i\n", (slam_instance.n_landmarks));
     }
 

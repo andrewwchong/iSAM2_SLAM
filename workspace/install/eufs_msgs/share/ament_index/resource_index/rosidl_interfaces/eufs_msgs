@@ -32,10 +32,6 @@ msg/ConeWithCovariancePlus.idl
 msg/ConeWithCovariancePlus.msg
 msg/Costmap.idl
 msg/Costmap.msg
-msg/CpuStatus.idl
-msg/CpuStatus.msg
-msg/CpuUsage.idl
-msg/CpuUsage.msg
 msg/EKFErr.idl
 msg/EKFErr.msg
 msg/EKFState.idl
